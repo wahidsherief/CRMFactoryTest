@@ -16,8 +16,12 @@ class Section extends React.Component {
     this.setState({ activeKey });
   }
 
+
+  /*
+  * alert the content of panel body when click
+  */
   showAlert(name) {
-    alert(name);
+    alert('User Details of '+ name);
   }
 
   render() {
@@ -27,7 +31,16 @@ class Section extends React.Component {
                 <Panel.Title toggle>{this.props.user.username}</Panel.Title>
             </Panel.Heading>
             <Panel.Body collapsible onClick={() => this.showAlert(this.props.user.name)}>
-                {this.props.user.name}
+                <h4>{this.props.user.name}</h4>
+                <p><strong>Email: </strong>{this.props.user.email}</p>
+                <p><strong>Phone: </strong>{this.props.user.phone}</p>
+                <p>
+                    <strong>Address: </strong>
+                    {this.props.user.address.street}
+                    {this.props.user.address.suite}
+                    {this.props.user.address.city}
+                    {this.props.user.address.zipcode}
+                </p>
             </Panel.Body>
         </Panel>
     );

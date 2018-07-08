@@ -78,21 +78,21 @@ class EmployeeList extends React.Component {
         if (error) {
             this.renderError();
         }
- 
-          return (
+
+        /*
+        * Method to display employee list.
+        */
+        return (
             <div className="accordion-container">
               <h1>Employee List</h1>
-
               <PanelGroup 
                   accordion
                   id="accordion-controlled-example"
                   defaultActiveKey = "1"
               >
               {users.map(user =>
-                <Section user={user} key={user.id} activeKey={user.id.toString()}/>
+                <Section user={user} key={user.id} activeKey={user.id.toString()} />
               )}
-
-
               </PanelGroup>
             </div>
           );
